@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce</title>
   </head>
-  <body class="font-helvetica px-[30px] h-screen overflow-hidden">
-    <form action="" class="w-full h-full flex flex-col items-center justify-center">
+  <body class="font-helvetica px-[30px] h-screen overflow-hidden flex justify-center items-center">
+    <form action="" class="w-full h-full flex flex-col items-center justify-center max-w-[370px]">
       <h1 class="text-[28px] leading-[33px] mb-5">Insira seu e-mail para realizar o login</h1>
       <span class="bg-gray-100 px-5 w-full h-[0px] flex items-center gap-[10px] text-[19px] rounded-lg overflow-hidden"> <img src="./src/assets/svgs/alert.svg" class="h-[24px]" alt="Alerta"> Credenciais inválidas</span>
       <div class="w-full relative">
@@ -16,6 +16,7 @@
       </div>
       <div class="w-full relative mb-[40px]">
         <label for="senha" id="labelSenha" class="absolute top-[42px] left-[18px] text-gray-500">Senha</label>
+        <img src="./src/assets/svgs/hidden-eye.svg" aria-label="Exibir senha" id="inputEye" class="absolute right-[18px] top-[42px]">
         <input type="password" class="border h-[68px] w-full rounded-lg mt-5 pl-[18px] overflow-visible" name="senha" id="senha" placeholder="">
       </div>
       <span class="text-gray-500 w-full inline-block">Esqueceu sua senha?</span>

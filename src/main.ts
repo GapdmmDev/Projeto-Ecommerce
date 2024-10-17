@@ -40,3 +40,22 @@ function addLabelAnimation(input: HTMLInputElement, label: HTMLLabelElement) {
   addLabelAnimation(inputSenha, labelSenha);
 
 
+// Alterar type do input senha
+
+const inputEye = document.getElementById('inputEye') as HTMLImageElement;
+
+let eyeIsOn = false;
+
+inputEye.addEventListener('click', () => {
+    eyeIsOn = !eyeIsOn;
+    if(eyeIsOn) {
+        inputEye.src = './src/assets/svgs/visibble-eye.svg'
+        inputSenha.type = 'text'
+        inputEye.ariaLabel = 'Esconder senha'
+    }else{
+        inputEye.src = './src/assets/svgs/hidden-eye.svg'
+        inputSenha.type = 'password'
+        inputEye.ariaLabel = 'Exibir senha'
+    }
+    
+})
