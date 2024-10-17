@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "helvetica";
+    src: url("./fonts/Helvetica/HelveticaNowText-Regular.ttf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "helveticaMedium";
+    src: url("./fonts/Helvetica/HelveticaNowText-Medium.ttf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "helveticaBold";
+    src: url("./fonts/Helvetica/HelveticaNowText-Bold.ttf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+}
