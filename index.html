@@ -7,9 +7,9 @@
     <title>Ecommerce</title>
   </head>
   <body class="font-helvetica px-[30px] h-screen overflow-hidden flex justify-center items-center">
-    <form action="" class="w-full h-full flex flex-col items-center justify-center max-w-[370px]">
+    <form id="formLogin" class="w-full flex flex-col items-center justify-center max-w-[370px] relative">
       <h1 class="text-[28px] leading-[33px] mb-5">Insira seu e-mail para realizar o login</h1>
-      <span class="bg-gray-100 px-5 w-full h-[0px] flex items-center gap-[10px] text-[19px] rounded-lg overflow-hidden"> <img src="./src/assets/svgs/alert.svg" class="h-[24px]" alt="Alerta"> Credenciais inválidas</span>
+      <span class="bg-gray-100 px-5 w-full h-[0px] flex items-center gap-[10px] text-[19px] rounded-lg overflow-hidden absolute top-[-70px]" id="spanErro"> <img src="./src/assets/svgs/alert.svg" class="h-[24px]" alt="Alerta"> Credenciais inválidas</span>
       <div class="w-full relative">
         <label for="email" class="absolute top-[42px] left-[18px] text-gray-500" id="labelEmail">E-mail</label>
         <input type="text" class="border h-[68px] w-full rounded-lg mt-5 pl-[18px] overflow-visible" name="email" id="email" placeholder="">
@@ -20,7 +20,9 @@
         <input type="password" class="border h-[68px] w-full rounded-lg mt-5 pl-[18px] overflow-visible" name="senha" id="senha" placeholder="">
       </div>
       <span class="text-gray-500 w-full inline-block">Esqueceu sua senha?</span>
-      <button class="bg-gray-900 px-[116px] text-white rounded-lg h-[69px] font-helveticaMedium mt-[10px] w-full">Confirmar</button>
+    
+      <button type="submit" id="buttonLogin" class="bg-gray-900 px-[116px] text-white rounded-lg h-[69px] flex items-center justify-center font-helveticaMedium mt-[10px] w-full">Confirmar</button>
+     
     </form>
     <script type="module" src="/src/main.ts"></script>
   </body>
