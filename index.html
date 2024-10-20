@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -8,86 +8,104 @@
   </head>
   <body class="font-helvetica px-[24px]">
     <header class="pt-[30px] flex items-center justify-between">
-        <div class="flex items-center gap-[15px]">
-            <img src="./src/assets/images/userPicture.png" alt="Foto de perfil" class="h-[62px] w-[62px] rounded-full bg-cover">
-            <span class="text-lg leading-6" id="saudacaoUsuario">
-                <span class="text-gray-500 text-md"></span><br>
-                
-            </span>
-        </div>
+      <div class="flex items-center gap-[15px]">
+        <img
+          src="./src/assets/images/userPicture.png"
+          alt="Foto de perfil"
+          class="h-[62px] w-[62px] rounded-full bg-cover"
+        />
+        <span class="text-lg leading-6" id="saudacaoUsuario">
+          <span class="text-gray-500 text-md"></span><br />
+        </span>
+      </div>
 
-        <nav class="bg-gray-100 h-[54px] flex items-center justify-between rounded-[10px] px-[4px] relative gap-1">
-            <img src="./src/assets/svgs/mycar.svg" aria-label="Meu carrinho" alt="Carrinho de compras" class="py-[14px] h-[47px] w-[48px] px-[14px]">
-            <img src="./src/assets/svgs/menu.svg" alt="Menu" aria-label="Menu" id="menuButton" class="bg-white py-[17.5px] h-[47px] w-[48px] px-[13.5px] rounded-[10px]">
-            
-        </nav>
-        <div class="absolute bg-gray-100 h-[0px] top-[100px] right-[24px] left-[410px] rounded-[10px] z-50" id="menu"></div>
+      <nav
+        class="bg-gray-100 h-[54px] flex items-center justify-between rounded-[10px] px-[4px] relative gap-1"
+      >
+        <img
+          src="./src/assets/svgs/mycar.svg"
+          aria-label="Meu carrinho"
+          alt="Carrinho de compras"
+          class="py-[14px] h-[47px] w-[48px] px-[14px]"
+        />
+        <img
+          src="./src/assets/svgs/menu.svg"
+          alt="Menu"
+          aria-label="Menu"
+          id="menuButton"
+          class="bg-white py-[17.5px] h-[47px] w-[48px] px-[13.5px] rounded-[10px]"
+        />
+      </nav>
+      <div
+        class="absolute bg-gray-100 h-[0px] top-[100px] right-[24px] left-[410px] rounded-[10px] z-50"
+        id="menu"
+      ></div>
     </header>
 
     <main>
+      <h2
+        class="text-[28px] leading-9 mt-10 h-[80px]"
+        id="textoEncontrarProduto"
+      >
+        Vamos encontrar <br />
+        o seu produto!
+      </h2>
 
-      
-        <h2 class="text-[28px] leading-9 mt-10 h-[80px]" id="textoEncontrarProduto">Vamos encontrar <br> o seu produto!</h2>
+      <div class="w-full relative mb-[40px]">
+        <img
+          src="./src/assets/svgs/search.svg"
+          aria-label="Exibir senha"
+          id="inputEye"
+          class="absolute left-[18px] top-[37px]"
+        />
+        <img
+          src="./src/assets/svgs/filter.svg"
+          aria-label="Exibir senha"
+          id="inputEye"
+          class="absolute right-[18px] top-[37px]"
+        />
+        <input
+          type="text"
+          class="border h-[59px] w-full rounded-lg mt-5 pl-[50px] overflow-visible placeholder-gray-800"
+          name="search"
+          id="search"
+          placeholder="Procurar por produtos"
+        />
+      </div>
 
-        <div class="w-full relative mb-[40px]">
-            <img src="./src/assets/svgs/search.svg" aria-label="Exibir senha" id="inputEye" class="absolute left-[18px] top-[37px]">
-            <img src="./src/assets/svgs/filter.svg" aria-label="Exibir senha" id="inputEye" class="absolute right-[18px] top-[37px]">
-            <input type="text" class="border h-[59px] w-full rounded-lg mt-5 pl-[50px] overflow-visible placeholder-gray-800" name="search" id="search" placeholder="Procurar por produtos">
-            
-            <!-- <div class="flex">
-                <label for="ordenar">Ordenar por:</label>
-                <select name="" value="crescente" id="">
-                    <option value="crescente">Preço crescente</option>
-                </select>
-            </div> -->
-        </div>
-
-        <div class="flex justify-between flex-wrap gap-[14px] lg:justify-start">
-            <div class="w-[178px] flex flex-col gap-[7px]">
-                <img src="./src/assets/images/product.png" class="h-[178px] w-[178px]" alt="">
-                <h3>Edifiers Headphone Ultra Wear</h3>
-                <span>R$3.200,00</span>
-             </div> 
-    
-             <div class="w-[178px] flex flex-col gap-[7px]">
-                <img src="./src/assets/images/product.png" class="h-[178px] w-[178px]" alt="">
-                <h3>Edifiers Headphone Ultra Wear</h3>
-                <span>R$3.200,00</span>
-             </div> 
-
-             <div class="w-[178px] flex flex-col gap-[7px]">
-                <img src="./src/assets/images/product.png" class="h-[178px] w-[178px]" alt="">
-                <h3>Edifiers Headphone Ultra Wear</h3>
-                <span>R$3.200,00</span>
-             </div>
-        </div>    
-
-        <dialog open class="bg-white font-helvetica px-[30px] h-screen w-screen overflow-hidden flex flex-col justify-center items-center fixed top-0 bottom-0 left-0" id="modalLogin">
-          <img src="./src/assets/svgs/back.svg" class=" absolute top-[30px] left-[30px]" id="backButtonLogin">
-          <form autocomplete="off" id="formLogin" class="w-full flex flex-col items-center justify-center max-w-[370px] relative">
-            <h1 class="text-[28px] leading-[33px] mb-5">Insira seu login para adicionar ao carrinho</h1>
-            <span class="bg-gray-100 px-5 w-full h-[0px] flex items-center gap-[10px] text-[19px] rounded-lg overflow-hidden absolute top-[-70px]" id="spanErro"> <img src="./src/assets/svgs/alert.svg" class="h-[24px]" alt="Alerta"> Credenciais inválidas</span>
-            <div class="w-full relative">
-              <label for="email" class="absolute top-[42px] left-[18px] text-gray-500" id="labelEmail">E-mail</label>
-              <input type="text" class="border h-[68px] w-full rounded-lg mt-5 pl-[18px] overflow-visible" name="email" id="email" placeholder="">
-            </div>
-            <div class="w-full relative mb-[40px]">
-              <label for="senha" id="labelSenha" class="absolute top-[42px] left-[18px] text-gray-500">Senha</label>
-              <img src="./src/assets/svgs/hidden-eye.svg" aria-label="Exibir senha" id="eyeButton" class="absolute right-[18px] top-[42px]">
-              <input type="password" class="border h-[68px] w-full rounded-lg mt-5 pl-[18px] overflow-visible" name="senha" id="senha" placeholder="">
-            </div>
-            <span class="text-gray-500 w-full inline-block">Esqueceu sua senha?</span>
-          
-            <button type="submit" id="buttonLogin" class="bg-gray-900 px-[116px] text-white rounded-lg h-[69px] flex items-center justify-center font-helveticaMedium mt-[10px] w-full">Confirmar</button>
-           
-          </form>
-         
-        </dialog>
-
+      <!-- Contêiner de produtos -->
+      <div
+        class="flex justify-between flex-wrap gap-[14px] lg:justify-start"
+        id="product-list"
+      ></div>
     </main>
 
-    
-
     <script type="module" src="./src/main.ts"></script>
-</body>
+    <script>
+      // Função para buscar e renderizar os produtos da Fake Store API
+      async function fetchProducts() {
+        const response = await fetch("https://fakestoreapi.com/products");
+        const products = await response.json();
+
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = ""; // Limpa a lista antes de renderizar
+
+        products.forEach((product) => {
+          const productElement = `
+                <div class="w-[178px] flex flex-col gap-[7px]">
+                  <img src="${
+                    product.image
+                  }" class="h-[178px] w-[178px]" alt="${product.title}">
+                  <h3>${product.title}</h3>
+                  <span>R$ ${product.price.toFixed(2)}</span>
+                </div>
+              `;
+          productList.innerHTML += productElement;
+        });
+      }
+
+      // Carregar produtos ao iniciar a página
+      document.addEventListener("DOMContentLoaded", fetchProducts);
+    </script>
+  </body>
 </html>
