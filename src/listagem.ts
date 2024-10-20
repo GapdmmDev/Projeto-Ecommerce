@@ -1,3 +1,5 @@
+import { clickAnimation } from "./main";
+
 export function listagem() {
     const menuButton = document.getElementById('menuButton') as HTMLImageElement;
     const menu = document.getElementById('menu') as HTMLDivElement;
@@ -12,24 +14,15 @@ export function listagem() {
             menu.style.left = '24px'
             menu.style.transition = 'all .2s ease-in-out'
             menuButton.style.transition = 'all .2s ease-in-out'
-            menuButton.style.scale = '0'
-            setTimeout(() => {
-                menuButton.style.scale = '1'
-                
-            }, 100)
+            clickAnimation(menuButton, '0.2', '1')
             menuButton.src = './src/assets/svgs/close.svg'
 
         }else {
             menu.style.height = '0px'
             menu.style.left = '440px'
-            menuButton.style.scale = '0'
-            setTimeout(() => {
-                menuButton.style.scale = '1'
-            }, 100)
+            clickAnimation(menuButton, '0.2', '1')
             menuButton.src = './src/assets/svgs/menu.svg'
-        }
-
-        
+        }        
     })
     
     const textoEncontrarProduto = document.getElementById('textoEncontrarProduto') as HTMLElement;

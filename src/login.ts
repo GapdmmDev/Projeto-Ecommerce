@@ -1,12 +1,28 @@
+import { clickAnimation } from "./main";
+
 export function login() {
 const inputEmail = document.getElementById('email') as HTMLInputElement;
 const labelEmail = document.getElementById('labelEmail') as HTMLLabelElement;
 const inputSenha = document.getElementById('senha') as HTMLInputElement;
 const labelSenha = document.getElementById('labelSenha') as HTMLLabelElement;
 const spanErro = document.getElementById('spanErro') as HTMLSpanElement;
-const inputEye = document.getElementById('inputEye') as HTMLImageElement;
+const eyeButton = document.getElementById('eyeButton') as HTMLImageElement;
 const formLogin = document.getElementById('formLogin') as HTMLFormElement;
 const buttonLogin = document.getElementById('buttonLogin') as HTMLButtonElement;
+const backButtonLogin = document.getElementById('backButtonLogin') as HTMLButtonElement;
+const modalLogin = document.getElementById('modalLogin') as HTMLDialogElement;
+const saudacaoUsuario = document.getElementById('saudacaoUsuario') as HTMLSpanElement;
+
+
+// Fechar modal
+
+backButtonLogin.addEventListener('click', () => {
+  clickAnimation(backButtonLogin, '0.75', '1');
+  backButtonLogin.style.transition = 'all 0.1s ease-in-out';
+  setTimeout(() => {
+    modalLogin.close();
+  },200) 
+})
 
 //Function para animação da Label
 
@@ -45,31 +61,26 @@ function addLabelAnimation(input: HTMLInputElement, label: HTMLLabelElement) {
 
 // Alterar type do input senha
 
-
-
 let eyeIsOn = false;
 
-inputEye.addEventListener('click', () => {
+eyeButton.addEventListener('click', () => {
     eyeIsOn = !eyeIsOn;
+    console.log('click')
     if(eyeIsOn) {
-        inputEye.src = './src/assets/svgs/visibble-eye.svg'
+        eyeButton.src = './src/assets/svgs/visibble-eye.svg'
         inputSenha.type = 'text'
-        inputEye.ariaLabel = 'Esconder senha'
+        eyeButton.ariaLabel = 'Esconder senha'
     }else{
-        inputEye.src = './src/assets/svgs/hidden-eye.svg'
+        eyeButton.src = './src/assets/svgs/hidden-eye.svg'
         inputSenha.type = 'password'
-        inputEye.ariaLabel = 'Exibir senha'
+        eyeButton.ariaLabel = 'Exibir senha'
     }
     
 })
 
 buttonLogin.addEventListener('click', () => {
-  buttonLogin.style.scale = '0.9';
   buttonLogin.style.transition = 'all 0.1s ease-in-out';
-  setTimeout(() => {
-    buttonLogin.style.scale = '1';
-    
-  }, 100);
+  clickAnimation(buttonLogin, '0.9', '1');
 
   setTimeout(() => {
     buttonLogin.innerHTML = `
@@ -86,6 +97,37 @@ buttonLogin.addEventListener('click', () => {
   
   
 })
+
+function decodeJWT(token: string): any {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join('')
+  );
+  const usuario = JSON.parse(jsonPayload);
+  
+  return usuario;
+}
+
+async function capturarNomeUsuario(tokenDecodificado: any): Promise<string> {
+  const id = String(tokenDecodificado.sub); // Converte o ID para uma string
+
+  try {
+    const response = await fetch(`https://fakestoreapi.com/users/${id}`); // Espera a resposta da API
+    const json = await response.json(); // Espera a conversão da resposta para JSON
+    const nomeUsuario = json.name.firstname; // Captura o nome do usuário
+    return nomeUsuario; // Retorna o nome do usuário
+  } catch (error) {
+    console.error('Erro ao capturar o nome do usuário:', error); // Captura e exibe qualquer erro
+    throw error; // Lança o erro novamente para que quem chamar a função possa lidar com isso
+  }
+}
+
 
 
 // Gerar Token
@@ -111,10 +153,17 @@ buttonLogin.addEventListener('click', () => {
 
     
     if (data.token) {
-      setTimeout(() => {
-        console.log(data.token);
-        sessionStorage.setItem('@TOKEN', data.token)
-        window.location.href = "../listagem.html";
+      setTimeout(async () => {
+        sessionStorage.setItem('@TOKEN', data.token);
+        // decodeJWT(data.token);
+        console.log('test');
+        const nomeUsuario = await capturarNomeUsuario(decodeJWT(data.token));
+        // Atualizar nome de usuario na listagem
+        saudacaoUsuario.innerHTML = `
+            <span class="text-gray-500 text-md">Olá,</span><br>
+            ${nomeUsuario[0].toUpperCase() + nomeUsuario.slice(1)}
+        `;
+        modalLogin.close();
       }, 700)} else {
         console.log('Login failed');
     }
@@ -132,16 +181,14 @@ buttonLogin.addEventListener('click', () => {
     
   });
 
-  
     
 })
 
 
 
-           
-
 }
 
+console.log('username: johnd, password: m38rmF$')
 
 // email:'John@gmail.com',
 // username:'johnd',

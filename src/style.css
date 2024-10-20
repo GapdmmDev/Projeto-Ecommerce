@@ -23,8 +23,30 @@
     font-display: swap;
 }
 
+@font-face {
+  font-family: "inter";
+  src: url("./fonts/Inter/Inter_18pt-Regular.ttf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "interMedium";
+  src: url("./fonts/Inter/Inter_24pt-Medium.ttf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
  input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
     box-shadow: 0 0 0 1000px white inset;
     -webkit-text-fill-color: #000;
   }
+
+  dialog {
+    display: none !important;  /* Certifique-se de que o diálogo comece oculto */
+  }
+  dialog[open] {
+    display: flex !important; /* Exibe o modal apenas quando o atributo "open" estiver presente */
+  }
+  
