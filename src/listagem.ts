@@ -85,7 +85,11 @@ export function listagem() {
     // Adicionar evento de pesquisa quando o "Enter" é pressionado
     search.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        const searchTerm = search.value.trim();
+        event.preventDefault();  // Impede o envio do formulário
+        const target = event.target as HTMLInputElement;
+        const searchTerm = target.value.trim();
+        
+        // Filtrar e renderizar os produtos com base no termo de pesquisa
         const filteredProducts = filterProducts(products, searchTerm);
         renderProducts(filteredProducts);
       }
