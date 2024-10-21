@@ -50,3 +50,6 @@
     display: flex !important; /* Exibe o modal apenas quando o atributo "open" estiver presente */
   }
   
+  dialog::backdrop{
+    background-color: #fff;
+  }

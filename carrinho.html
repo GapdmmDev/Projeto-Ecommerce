@@ -7,111 +7,38 @@
 </head>
 <body class="font-inter">
     <header class="px-[24px] pt-[30px] pb-[24px] flex justify-center items-center ">
-        <img src="./src/assets/svgs/back.svg" aria-label="Retroceder" class="absolute top-[24px] left-[24px]">
+        <img src="./src/assets/svgs/back.svg" id="backButtonCarrinho" aria-label="Retroceder" class="absolute top-[24px] left-[24px]">
         <h2 class="text-[22px]">Meu carrinho</h2>
     </header>
     
-    <main class="px-[24px] flex flex-col gap-6 overflow-y-auto h-[482px]">
-        <div class="flex items-center gap-[14px]">
-            <img src="./src/assets/images/product.png" alt="Edifiers Headphone" class="h-[112px]">
-            <div class="w-full gap-[14px] flex flex-col justify-between">
-                <h3 class="w-8/12">Edifiers Headphone Ultra Wear</h3>
-                <div class="flex items-center justify-between">
-                    <span>R$ 3.200,00</span>
-                    <div class="flex items-center gap-3">
-                        <img src="./src/assets/svgs/remove.svg" aria-label="Remover">
-                        <span>1</span>
-                        <img src="./src/assets/svgs/add.svg" aria-label="Adicionar">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <main class="px-[24px] flex flex-col gap-6 overflow-y-auto h-[482px]" id="containerCarrinho">
 
-        <div class="flex items-center gap-[14px]">
-            <img src="./src/assets/images/product.png" alt="Edifiers Headphone" class="h-[112px]">
-            <div class="w-full gap-[14px] flex flex-col justify-between">
-                <h3 class="w-8/12">Edifiers Headphone Ultra Wear</h3>
-                <div class="flex items-center justify-between">
-                    <span>R$ 3.200,00</span>
-                    <div class="flex items-center gap-3">
-                        <img src="./src/assets/svgs/remove.svg" aria-label="Remover">
-                        <span>1</span>
-                        <img src="./src/assets/svgs/add.svg" aria-label="Adicionar">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-[14px]">
-            <img src="./src/assets/images/product.png" alt="Edifiers Headphone" class="h-[112px]">
-            <div class="w-full gap-[14px] flex flex-col justify-between">
-                <h3 class="w-8/12">Edifiers Headphone Ultra Wear</h3>
-                <div class="flex items-center justify-between">
-                    <span>R$ 3.200,00</span>
-                    <div class="flex items-center gap-3">
-                        <img src="./src/assets/svgs/remove.svg" aria-label="Remover">
-                        <span>1</span>
-                        <img src="./src/assets/svgs/add.svg" aria-label="Adicionar">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-[14px]">
-            <img src="./src/assets/images/product.png" alt="Edifiers Headphone" class="h-[112px]">
-            <div class="w-full gap-[14px] flex flex-col justify-between">
-                <h3 class="w-8/12">Edifiers Headphone Ultra Wear</h3>
-                <div class="flex items-center justify-between">
-                    <span>R$ 3.200,00</span>
-                    <div class="flex items-center gap-3">
-                        <img src="./src/assets/svgs/remove.svg" aria-label="Remover">
-                        <span>1</span>
-                        <img src="./src/assets/svgs/add.svg" aria-label="Adicionar">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-[14px]">
-            <img src="./src/assets/images/product.png" alt="Edifiers Headphone" class="h-[112px]">
-            <div class="w-full gap-[14px] flex flex-col justify-between">
-                <h3 class="w-8/12">Edifiers Headphone Ultra Wear</h3>
-                <div class="flex items-center justify-between">
-                    <span>R$ 3.200,00</span>
-                    <div class="flex items-center gap-3">
-                        <img src="./src/assets/svgs/remove.svg" aria-label="Remover">
-                        <span>1</span>
-                        <img src="./src/assets/svgs/add.svg" aria-label="Adicionar">
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <div class="py-[18px] px-[24px] w-full fixed bottom-0 bg-white">
-        <input type="text" class="h-[52px] w-full rounded-lg bg-gray-100 border pl-4 outline-none" id="inputDesconto">
+        <input type="text" class="h-[52px] w-full rounded-lg bg-gray-100 border pl-4 outline-none" id="inputDesconto" placeholder="Aplicar cupom">
 
         <div class="mt-6 text-[17px] flex flex-col gap-3">
             <div class="flex justify-between">
-                <span class="text-gray-500">Subtotal:</span>
-                <span>R$ 9600,00</span>
+                <span class="text-gray-500" >Subtotal:</span>
+                <span id="subtotal">R$ 0,00</span>
             </div>
 
             <div class="flex justify-between">
                 <span class="text-gray-500">Frete:</span>
-                <span>R$ 70,00</span>
+                <span id="frete">R$ 70</span>
             </div>
 
             <div class="flex justify-between">
                 <span class="text-gray-500">Desconto</span>
-                <span class="text-customRed">R$ - 1440,00</span>
+                <span class="text-customRed" id="desconto">R$ 0,00</span>
             </div>
 
             <hr>
 
             <div class="flex justify-between text-[19px]">
                 <span>Total</span>
-                <span class="text-customGreen">R$ 8230,00</span>
+                <span class="text-customGreen" id="totalCheckout">R$ 0,00</span>
             </div>
 
             <button type="submit" id="buttonLogin" class="bg-gray-900 px-[116px] text-white rounded-lg h-[69px] flex items-center justify-center font-helveticaMedium mt-[10px] w-full">Checkout</button>

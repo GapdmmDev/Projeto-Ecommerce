@@ -1,5 +1,6 @@
 import { listagem } from './listagem';
 import { login } from './login';
+import { carrinho } from './carrinho';
 import './style.css';
 
 export function clickAnimation(element: HTMLElement, firstScale: string, secondScale: string) {
@@ -10,13 +11,16 @@ export function clickAnimation(element: HTMLElement, firstScale: string, secondS
         }, 100)
 }
 
-if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
-    login();
-    listagem();
-}
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+        login();
+        listagem();
+    }
 
-
-    
+    if (window.location.pathname === '/carrinho.html') {
+        carrinho();
+    }
+});
 
 
 

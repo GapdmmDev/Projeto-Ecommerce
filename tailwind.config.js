@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./*.{html,js}"],
+  content: ["./*.{html,ts}"],
   theme: {
     extend: {
 
@@ -13,7 +13,8 @@ export default {
         helvetica: ['helvetica', 'sans-serif'],
         helveticaMedium: ['helveticaMedium', 'sans-serif'],
         helveticaBold: ['helveticaBold' , 'sans-serif'],
-        inter: ['inter' , 'sans-serif']
+        inter: ['inter' , 'sans-serif'],
+        interMedium: ['interMedium' , 'sans-serif']
       }
     },
   },
